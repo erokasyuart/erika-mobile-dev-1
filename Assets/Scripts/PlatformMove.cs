@@ -15,6 +15,6 @@ public class PlatformMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.down * Time.deltaTime * 2.5f);
+        transform.Translate(Vector2.down * Time.deltaTime);
     }
 }

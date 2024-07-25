@@ -11,13 +11,13 @@ public class PlatformSpawn : MonoBehaviour
     //random scale
 
     [SerializeField]private GameObject platformPrefab;
-    private int timeBetweenSpawn = 2;
+    private float timeBetweenSpawn = 2f;
     private float randPlatformScaleX;
     private float randomPlatformPosX;
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(Spawn());
+        StartCoroutine(Spawn());
     }
 
     // Update is called once per frame
@@ -29,8 +29,8 @@ public class PlatformSpawn : MonoBehaviour
     {
         while (true)
         {
-            randomPlatformPosX = Random.Range(-7f, 7f);
-            randPlatformScaleX = Random.Range(2.5f, 6.5f);
+            randomPlatformPosX = Random.Range(-2.5f, 2.5f);
+            randPlatformScaleX = Random.Range(1f, 2f);
             Instantiate(platformPrefab, new Vector2(randomPlatformPosX, transform.position.y), Quaternion.identity).transform.localScale = new Vector2(randPlatformScaleX, 0.2f);
 
             //Instantiate(platformPrefab, transform.position, Quaternion.identity);
