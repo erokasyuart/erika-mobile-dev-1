@@ -1,6 +1,7 @@
 /// <remarks>
 /// Author: Erika Stuart
 /// Date Created: 30/07/2024
+/// Date Last Modified: 07/08/2024
 /// Bugs: N/A
 /// </remarks>
 
@@ -14,17 +15,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Time : MonoBehaviour
+public class Timer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timeText;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Timer());
+        StartCoroutine(Counting());
     }
 
-    public IEnumerator Timer()
+    public IEnumerator Counting()
     {
         float time = 0;
         while (true)
