@@ -22,14 +22,25 @@ public class MovingBackground : MonoBehaviour
     {
         MoveDown();
         
-        if (gameObject.name == "Horizon Background" && transform.position.y <= endPoint)
-        {
-            Destroy(gameObject);
-        }
-
         if (gameObject.name == "Sky Background" && transform.position.y <= 0)
         {
             speed = 0;
+        }
+        
+        if (transform.position.y > endPoint)
+        {
+            if (gameObject.name == "Mountains")
+            {
+                speed = 0.5f;
+            }
+            else if (gameObject.name == "Trees")
+            {
+                speed = 0.2f;
+            }
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
