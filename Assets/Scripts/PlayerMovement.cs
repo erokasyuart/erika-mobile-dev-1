@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //private bool dragging;
-    //private Transform toDrag;
-    //private float dist;
-    //private Vector3 offset;
+    // need to set a boolean to true when the touch position is within the player's collider
+    private bool onPlayer = false;
 
     // Update is called once per frame
     void Update()
@@ -26,15 +24,22 @@ public class PlayerMovement : MonoBehaviour
             {
                 case TouchPhase.Began:
                     RaycastHit2D hit = Physics2D.Raycast(touchPos, Vector2.zero);
-                    if (hit.collider != null)
+                    if (hit.collider != null && hit.collider.gameObject.name == "Player")
                     {
                         Debug.Log("Touched " + hit.collider.gameObject.name);
+                        onPlayer = true;
                     }
+
                     break;
                 case TouchPhase.Moved:
-                    transform.position = new Vector3(touchPos.x, touchPos.y, 0);
+                    if (!onPlayer)
+                    {
+                        return;
+                    }
+                    transform.position = new Vector3(touchPos.x, transform.position.y, 0);
                     break;
                 case TouchPhase.Ended:
+                    onPlayer = false;
                     break;
             }
         }

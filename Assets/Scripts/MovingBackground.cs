@@ -31,11 +31,11 @@ public class MovingBackground : MonoBehaviour
         {
             if (gameObject.name == "Mountains")
             {
-                speed = 0.5f;
+                speed = 0.2f;
             }
             else if (gameObject.name == "Trees")
             {
-                speed = 0.2f;
+                speed = 0.5f;
             }
         }
         else
