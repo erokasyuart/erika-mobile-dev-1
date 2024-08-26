@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class PlatformPhasing : MonoBehaviour
 {
-    [SerializeField] private BoxCollider2D squareCollider;
+    private BoxCollider2D squareCollider;
     private bool hasAlreadyTouched = false;
+    public PlatformMove platformMoveScript;
+    public PlatformSpawn platformSpawnScript;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        squareCollider = GetComponent<BoxCollider2D>();
         squareCollider.enabled = false;
     }
 
@@ -26,6 +30,8 @@ public class PlatformPhasing : MonoBehaviour
             {
                 hasAlreadyTouched = true;
                 GameManager.height++;
+                platformMoveScript.Instance.PlatformDown();
+                platformSpawnScript.Instance.PlatformSpawned();
             }
         }
     }
