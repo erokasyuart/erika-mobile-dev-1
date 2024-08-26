@@ -6,6 +6,7 @@ public class PlatformMove : MonoBehaviour
 {
     //private float jumpForce = 10f;
     public PlatformMove Instance;
+    private int lastHeight = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -16,17 +17,13 @@ public class PlatformMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.Translate(Vector3.down * Time.deltaTime * 2);
+        if (GameManager.height > lastHeight)
+        {
+            lastHeight = GameManager.height;
+            PlatformDown();
+        }
         
     }
-
-    // private void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     if (collision.gameObject.tag == "Player")
-    //     {
-    //         collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpForce;
-    //     }
-    // }
 
     // This will be called in PlatformPhasing script
     // when the player lands on the platform, move each platform down quickly by 10

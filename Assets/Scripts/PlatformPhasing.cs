@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+* One collider
+* starts as trigger on until the player enters it.
+* then it becomes a collider and the player can stand on top of the platform
+*/
+
 public class PlatformPhasing : MonoBehaviour
 {
     private BoxCollider2D squareCollider;
@@ -14,36 +20,18 @@ public class PlatformPhasing : MonoBehaviour
     void Start()
     {
         squareCollider = GetComponent<BoxCollider2D>();
-        squareCollider.enabled = false;
+        //squareCollider.enabled = false;
     }
 
-    // if the player enters the bottom collider,
-    // the actual collider will let the player
-    // pass through and stand on top of the platform
-    void OnTriggerExit(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.name == "Player")
         {
-            squareCollider.enabled = true;
+            squareCollider.isTrigger = false;
+            GameManager.height++;
 
-            if (!hasAlreadyTouched)
-            {
-                hasAlreadyTouched = true;
-                GameManager.height++;
-                platformMoveScript.Instance.PlatformDown();
-                platformSpawnScript.Instance.PlatformSpawned();
-            }
-        }
-    }
-
-    // if the player exits the bottom collider,
-    // the actual collider will not let the player
-    // pass through and fall through the platform
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            squareCollider.enabled = false;
+            //platformMoveScript.Instance.PlatformDown();
+            //platformSpawnScript.Instance.PlatformSpawned();
         }
     }
 

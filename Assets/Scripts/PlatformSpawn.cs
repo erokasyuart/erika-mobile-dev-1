@@ -25,21 +25,8 @@ public class PlatformSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
     }
-
-    // private IEnumerator Spawn()
-    // {
-    //     while (true)
-    //     {
-    //         randomPlatformPosX = Random.Range(-2.5f, 2.5f);
-    //         //randPlatformScaleX = Random.Range(1f, 2f);
-    //         //Instantiate(platformPrefab, new Vector2(randomPlatformPosX, transform.position.y), Quaternion.identity).transform.localScale = new Vector2(randPlatformScaleX, 0.2f);
-    //         Instantiate(platformPrefab, new Vector2(randomPlatformPosX, transform.position.y), Quaternion.identity);
-
-    //         //Instantiate(platformPrefab, transform.position, Quaternion.identity);
-    //         yield return new WaitForSeconds(timeBetweenSpawn);
-    //     }
-    // }
 
     public void PlatformSpawned()
     {

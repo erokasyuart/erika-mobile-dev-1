@@ -18,7 +18,7 @@ public class PlatformDestroyer : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("Entered collider");
+       // Debug.Log("Entered collider");
         if (other.gameObject.tag == "Platform")
         {
             Destroy(other.gameObject);
