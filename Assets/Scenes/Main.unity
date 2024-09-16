@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPrefab: {fileID: 846985012263596963, guid: 54ea2e693b59f3c4798e1fe37c9964f6, type: 3}
-  Instance: {fileID: 0}
+  Instance: {fileID: 563867998}
 --- !u!61 &563867999
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1178,7 +1178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1082897849
 Transform:
   m_ObjectHideFlags: 0
