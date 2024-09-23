@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlatformBounce : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] private GameObject platformSpawner;
+    private PlatformSpawn platformSpawn;
     void Start()
     {
-        
+        platformSpawn = platformSpawner.GetComponent<PlatformSpawn>();
     }
 
     // Update is called once per frame
