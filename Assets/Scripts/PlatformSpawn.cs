@@ -4,28 +4,12 @@ using UnityEngine;
 
 public class PlatformSpawn : MonoBehaviour
 {
-    // random size platform
-    // instantiate
-    // clone has moving script.
-    // random position
-    //random scale
-
     [SerializeField]private GameObject platformPrefab;
-    //private float timeBetweenSpawn = 2f;
-    //private float randPlatformScaleX;
     private float randomPlatformPosX;
-    public PlatformSpawn Instance;
-    // Start is called before the first frame update
+
     void Start()
     {
-        //StartCoroutine(Spawn());
-        Instance = this;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void PlatformSpawned()

@@ -14,21 +14,5 @@ public class PlatformMove : MonoBehaviour
         Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (GameManager.height > lastHeight)
-        {
-            lastHeight = GameManager.height;
-            PlatformDown();
-        }
-        
-    }
-
-    // This will be called in PlatformPhasing script
-    // when the player lands on the platform, move each platform down quickly by 10
-    public void PlatformDown()
-    {
-        transform.Translate(Vector3.down * Time.deltaTime * 10);
-    }
+   
 }
