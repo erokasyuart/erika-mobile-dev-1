@@ -7,7 +7,9 @@ public class PlatformBounce : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private GameObject platformSpawner;
     private PlatformSpawn platformSpawn;
-    private bool hasTouched = false;
+    //private bool hasTouched = false;
+    private int jumpCount = 0;
+
     void Start()
     {
         platformSpawn = GameObject.FindWithTag("PlatformSpawner").GetComponent<PlatformSpawn>();
@@ -22,14 +24,23 @@ public class PlatformBounce : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
+        Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
+        // if(other.gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
+        // {
+        //     other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 250f);
+        if (rb.velocity.y <= 0)
         {
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 300f);
-            if (!hasTouched)
+            rb.velocity = new Vector2(rb.velocity.x, 6f);
+
+            if (jumpCount < 1)
             {
-                hasTouched = true;
-                platformSpawn.PlatformSpawned();
+                jumpCount++;
+                platformSpawn.PlatformSpawned(this.gameObject);
                 GameManager.height++;
+            }
+            else if (jumpCount >= 1)
+            {
+                //break cloud platform
             }
         }
     }

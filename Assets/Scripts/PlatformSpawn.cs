@@ -12,9 +12,9 @@ public class PlatformSpawn : MonoBehaviour
 
     }
 
-    public void PlatformSpawned()
+    public void PlatformSpawned(GameObject platform)
     {
         randomPlatformPosX = Random.Range(-2.5f, 2.5f);
-        Instantiate(platformPrefab, new Vector2(randomPlatformPosX, transform.position.y), Quaternion.identity);
+        Instantiate(platformPrefab, new Vector2(randomPlatformPosX, platform.transform.position.y + 6f), Quaternion.identity);
     }
 }
