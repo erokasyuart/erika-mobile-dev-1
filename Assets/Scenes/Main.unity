@@ -200,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126586198}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -3.11, z: 0}
   m_LocalScale: {x: 0.5916, y: 0.6313, z: 1}
   m_ConstrainProportionsScale: 0
@@ -499,6 +499,7 @@ RectTransform:
   m_Children:
   - {fileID: 563868000}
   - {fileID: 1717266175}
+  - {fileID: 1680652098}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -617,7 +618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &477787153
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2181,7 +2182,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6627451, g: 0.7960785, b: 0.92549026, a: 1}
+  m_Color: {r: 0.59607846, g: 0.75294125, b: 0.90196085, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2200,11 +2201,11 @@ Transform:
   m_GameObject: {fileID: 1680652095}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 17.5, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 1}
+  m_LocalPosition: {x: 0, y: 29.23077, z: 0}
+  m_LocalScale: {x: 23.076923, y: 23.076923, z: 1.5384616}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 301607354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1717266172
 GameObject:
@@ -2290,7 +2291,7 @@ Transform:
   m_GameObject: {fileID: 1717266172}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.292308, z: 0}
+  m_LocalPosition: {x: 0, y: -7.07, z: 0}
   m_LocalScale: {x: 8, y: 1.5384616, z: 1.5384616}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2375,7 +2376,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935114216}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 0.5916, y: 0.6313, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2748,11 +2749,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 2129561387}
-  - {fileID: 1680652098}
-  - {fileID: 301607354}
   - {fileID: 1935114218}
   - {fileID: 126586200}
+  - {fileID: 2129561387}
+  - {fileID: 301607354}
   - {fileID: 2007909273}
   - {fileID: 786508851}
   - {fileID: 1408780191}
