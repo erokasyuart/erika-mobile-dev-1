@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitleScreenManager : MonoBehaviour
 {
@@ -18,17 +19,20 @@ public class TitleScreenManager : MonoBehaviour
         
     }
 
+    public void PlayButton()
+    {
+        SceneManager.LoadScene("Main");
+    }
+
+    public void QuitButton()
+    {
+        Application.Quit();
+    }
+
 
     public void PlayBoostEffect()
     {
-        if (Input.GetMouseButton(0))
-        {
-            shipEffect.Play();
-        }
-        else
-        {
-            shipEffect.Stop();
-        }
+       
     }
 
 }
