@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     // need to set a boolean to true when the touch position is within the player's collider
     private bool onPlayer = false;
+    [SerializeField] private Camera cam;
 
     // Update is called once per frame
     void Update()
@@ -26,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
                     RaycastHit2D hit = Physics2D.Raycast(touchPos, Vector2.zero);
                     if (hit.collider != null && hit.collider.gameObject.name == "Player")
                     {
-                        Debug.Log("Touched " + hit.collider.gameObject.name);
+                        //Debug.Log("Touched " + hit.collider.gameObject.name);
                         onPlayer = true;
                     }
 
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
                         return;
                     }
                     transform.position = new Vector3(touchPos.x, transform.position.y, 0);
+                    cam.transform.position = new Vector3(0, transform.position.y, -5);
                     break;
                 case TouchPhase.Ended:
                     onPlayer = false;
