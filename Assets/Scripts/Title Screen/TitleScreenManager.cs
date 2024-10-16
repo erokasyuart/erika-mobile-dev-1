@@ -10,6 +10,11 @@ public class TitleScreenManager : MonoBehaviour
     private UIInputSystem uIInputSystem; // Input System
     private InputAction boostAction; // Input Action
 
+    [SerializeField]private RectTransform buttonGraphic;
+    private float pressedScale = 0.9f; // Scale when pressed
+    private float transitionSpeed = 10f; // Speed of scaling back to normal
+    private Vector3 originalScale;
+
     private void Awake()
     {
         uIInputSystem = new UIInputSystem();
@@ -39,22 +44,7 @@ public class TitleScreenManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //uIInputSystem.TitleScreen.Graphic.performed += ctx => PlayBoostEffect();
-        // if (boostAction.phase == InputActionPhase.Started)
-        // {
-        //     Debug.Log("Action Started");
-        //     shipEffect.Play();
-        // }
-        // else if (boostAction.phase == InputActionPhase.Canceled)
-        // {
-        //     Debug.Log("Action Canceled");
-        //     shipEffect.Stop();
-        // }
+        originalScale = buttonGraphic.localScale;
     }
 
     public void PlayButton()
@@ -67,16 +57,32 @@ public class TitleScreenManager : MonoBehaviour
         Application.Quit();
     }
 
-
     private void OnBoostPerformed(InputAction.CallbackContext context)
     {
         Debug.Log("Boost Performed - Effect Started");
         shipEffect.Play();  // Start the particle effect
+        StartCoroutine(ScaleButton(Vector3.one * pressedScale));
     }
 
     private void OnBoostCanceled(InputAction.CallbackContext context)
     {
         Debug.Log("Boost Canceled - Effect Stopped");
         shipEffect.Stop();  // Stop the particle effect
+        StartCoroutine(ScaleButton(originalScale));
+    }
+
+    private IEnumerator ScaleButton(Vector3 targetScale)
+    {
+        while (Vector3.Distance(buttonGraphic.localScale, targetScale) > 0.01f)
+        {
+            buttonGraphic.localScale = Vector3.Lerp(
+                buttonGraphic.localScale, 
+                targetScale, 
+                transitionSpeed * Time.deltaTime
+            );
+            yield return null; // Wait for the next frame
+        }
+
+        buttonGraphic.localScale = targetScale; // Ensure final scale is exact
     }
 }
