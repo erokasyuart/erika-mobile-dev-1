@@ -5,17 +5,15 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public GameManager Instance { get; private set; }
+    public static GameManager Instance { get; private set; }
     public static int height;
     public static int Height
     {
-        get
-        {
-            return height;
-        }
+        get => height;
         set
         {
             height = value;
+            Instance.UpdateUI();
         }
     }
     

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlatformBounce : MonoBehaviour
 {
-    [SerializeField] private GameObject platformSpawner;
+    private GameObject platformSpawner;
     private PlatformSpawn platformSpawn;
     private int jumpCount = 0;
 
