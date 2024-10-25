@@ -28,7 +28,7 @@ public class PlatformBounce : MonoBehaviour
             }
             else if (jumpCount >= 1)
             {
-                Destroy(this.gameObject, 2);
+                Destroy(this.gameObject, 1);
             }
         }
     }

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainUI : MonoBehaviour
+public class MainSceneUI : MonoBehaviour
 {
-    public void ExitToTitle()
+
+    public void TitleReturn()
     {
         SceneManager.LoadScene("Title");
     }
+    
 }
