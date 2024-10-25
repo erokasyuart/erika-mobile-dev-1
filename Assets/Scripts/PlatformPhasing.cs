@@ -11,7 +11,6 @@ using UnityEngine;
 public class PlatformPhasing : MonoBehaviour
 {
     private BoxCollider2D squareCollider;
-    private bool hasAlreadyTouched = false;
     public PlatformMove platformMoveScript;
     public PlatformSpawn platformSpawnScript;
 
@@ -20,7 +19,6 @@ public class PlatformPhasing : MonoBehaviour
     void Start()
     {
         squareCollider = GetComponent<BoxCollider2D>();
-        //squareCollider.enabled = false;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -28,10 +26,6 @@ public class PlatformPhasing : MonoBehaviour
         if (other.gameObject.name == "Player")
         {
             squareCollider.isTrigger = false;
-            GameManager.height++;
-
-            //platformMoveScript.Instance.PlatformDown();
-            //platformSpawnScript.Instance.PlatformSpawned();
         }
     }
 

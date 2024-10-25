@@ -186,6 +186,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6875476322948208417, guid: 54ea2e693b59f3c4798e1fe37c9964f6, type: 3}
+      propertyPath: platformSpawner
+      value: 
+      objectReference: {fileID: 563867997}
     m_RemovedComponents:
     - {fileID: -8601854347191510390, guid: 54ea2e693b59f3c4798e1fe37c9964f6, type: 3}
     m_RemovedGameObjects: []
@@ -453,6 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a677baa9bd6cf49b6e6ad54da76659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
 --- !u!58 &301607351
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -789,7 +794,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPrefab: {fileID: 846985012263596963, guid: 54ea2e693b59f3c4798e1fe37c9964f6, type: 3}
-  Instance: {fileID: 563867998}
 --- !u!61 &563867999
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2139,7 +2143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1717266173
 MonoBehaviour:
   m_ObjectHideFlags: 0
