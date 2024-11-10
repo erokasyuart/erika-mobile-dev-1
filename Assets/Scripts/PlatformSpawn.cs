@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlatformSpawn : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class PlatformSpawn : MonoBehaviour
     {
         if (player.transform.position.y < lastPlatformPosY - 20) // if the player falls
         {
-            //Debug.Log("Game Over"); // game over
+            SceneManager.LoadScene("Title"); // go back to the title screen
         }
     }
 }
