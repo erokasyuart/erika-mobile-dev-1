@@ -6,15 +6,28 @@ public class PlatformSpawn : MonoBehaviour
 {
     [SerializeField]private GameObject platformPrefab;
     private float randomPlatformPosX;
+    private float lastPlatformPosY;
+    private float newPlatformPosY;
+    [SerializeField] private GameObject player;
 
     void Start()
     {
-
+        lastPlatformPosY = 3; // last platform when the game starts
     }
 
-    public void PlatformSpawned(GameObject platform)
+    public void PlatformSpawned()
     {
         randomPlatformPosX = Random.Range(-2.5f, 2.5f);
-        Instantiate(platformPrefab, new Vector2(randomPlatformPosX, platform.transform.position.y + 6f), Quaternion.identity);
+        newPlatformPosY = lastPlatformPosY + 1.6f;
+        Instantiate(platformPrefab, new Vector3(randomPlatformPosX, newPlatformPosY, 0), Quaternion.identity);
+        lastPlatformPosY = newPlatformPosY;
+    }
+
+    private void Update()
+    {
+        if (player.transform.position.y < lastPlatformPosY - 10)
+        {
+            Debug.Log("Game Over");
+        }
     }
 }

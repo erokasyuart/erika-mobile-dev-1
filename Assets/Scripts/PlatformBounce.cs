@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlatformBounce : MonoBehaviour
 {
-    private GameObject platformSpawner;
+    //private GameObject platformSpawner;
     private PlatformSpawn platformSpawn;
     private int jumpCount = 0;
 
     void Start()
     {
-        platformSpawn = GameObject.FindWithTag("PlatformSpawner").GetComponent<PlatformSpawn>();
+        platformSpawn = GameObject.Find("PlatformSpawnManager").GetComponent<PlatformSpawn>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -20,16 +20,16 @@ public class PlatformBounce : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, 6f);
 
-            if (jumpCount < 1)
-            {
-                jumpCount++;
-                platformSpawn.PlatformSpawned(this.gameObject);
+            //if (jumpCount < 1)
+            //{
+                platformSpawn.PlatformSpawned();
                 GameManager.Height++;
-            }
-            else if (jumpCount >= 1)
-            {
-                Destroy(this.gameObject, 1);
-            }
+                Destroy(this.gameObject, 2);
+            //}
+            // else if (jumpCount >= 0)
+            // {
+            //     Destroy(this.gameObject, 1);
+            // }
         }
     }
 }
