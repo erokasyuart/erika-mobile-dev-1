@@ -13,7 +13,15 @@ public class GameManager : MonoBehaviour
         set
         {
             height = value;
-            Instance.UpdateUI();
+            if (Instance != null) // Check if Instance is set before calling UpdateUI
+            {
+                Instance.UpdateUI();
+            }
+            if (height > PlayerPrefs.GetInt("HighScore", 0))
+            {
+                PlayerPrefs.SetInt("HighScore", height);
+                PlayerPrefs.Save();
+            }
         }
     }
     
@@ -30,8 +38,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    [SerializeField] private TextMeshProUGUI heightText;
-    [SerializeField] private TextMeshProUGUI timeText;
+    public TextMeshProUGUI heightText;
+    public TextMeshProUGUI timeText;
 
      private void Awake()
     {
@@ -60,8 +68,19 @@ public class GameManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        heightText.text = ($"{height.ToString()}m");
-        timeText.text = FormatTime(timePlayed);
+        if (heightText != null && timeText != null)
+        {
+            heightText.text = $"{height}m";
+            timeText.text = FormatTime(timePlayed);
+        }
+        else if (heightText == null)
+        {
+            heightText = GameObject.Find("Height").GetComponent<TextMeshProUGUI>();
+        }
+        else if (timeText == null)
+        {
+            timeText = GameObject.Find("Time").GetComponent<TextMeshProUGUI>();
+        }
     }
 
     private string FormatTime(float time)

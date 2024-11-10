@@ -27,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
                     RaycastHit2D hit = Physics2D.Raycast(touchPos, Vector2.zero);
                     if (hit.collider != null && hit.collider.gameObject.name == "Player")
                     {
-                        //Debug.Log("Touched " + hit.collider.gameObject.name);
                         onPlayer = true;
                     }
 

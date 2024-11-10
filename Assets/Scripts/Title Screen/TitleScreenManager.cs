@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class TitleScreenManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class TitleScreenManager : MonoBehaviour
     private float pressedScale = 0.9f; // Scale when pressed
     private float transitionSpeed = 10f; // Speed of scaling back to normal
     private Vector3 originalScale;
+    [SerializeField] private TextMeshProUGUI highScoreText;
 
     private void Awake()
     {
@@ -45,16 +47,12 @@ public class TitleScreenManager : MonoBehaviour
     void Start()
     {
         originalScale = buttonGraphic.localScale;
+        highScoreText.text = "Best Height: " + PlayerPrefs.GetInt("HighScore", GameManager.Height).ToString() + "m";
     }
 
     public void PlayButton()
     {
         SceneManager.LoadScene("Main");
-    }
-
-    public void QuitButton()
-    {
-        Application.Quit();
     }
 
     private void OnBoostPerformed(InputAction.CallbackContext context)
