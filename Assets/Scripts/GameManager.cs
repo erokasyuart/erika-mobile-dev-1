@@ -56,9 +56,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateUI();
-        timePlayed = 0;
         height = 0;
+        timePlayed = 0;
+        UpdateUI();
     }
 
     private void Update()
