@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlatformBounce : MonoBehaviour
 {
     private PlatformSpawn platformSpawn;
+    private AudioSource poofSound;
 
     void Start()
     {
         platformSpawn = GameObject.Find("PlatformSpawnManager").GetComponent<PlatformSpawn>(); // find the PlatformSpawn script
+        poofSound = GetComponent<AudioSource>(); // get the audio source
     }
 
     /// <summary>
@@ -18,6 +20,7 @@ public class PlatformBounce : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>(); // get the rigidbody of the player
+        poofSound.Play(); // play the poof sound
         if (rb.velocity.y <= 0) // if the player is not moving
         {
             rb.velocity = new Vector2(rb.velocity.x, 6f); // make the player bounce

@@ -15,7 +15,6 @@ public class PlayerBoundary : MonoBehaviour
             boundaryPosition = boundaryObjects[i].transform.position;
             boundaryPosition.y = transform.position.y;
             boundaryObjects[i].transform.position = boundaryPosition;
-            
         }
     }
 }
